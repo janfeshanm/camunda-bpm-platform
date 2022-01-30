@@ -87,6 +87,7 @@ import org.camunda.bpm.engine.impl.VariableInstanceQueryImpl;
 import org.camunda.bpm.engine.impl.batch.BatchQueryImpl;
 import org.camunda.bpm.engine.impl.batch.BatchStatisticsQueryImpl;
 import org.camunda.bpm.engine.impl.batch.history.HistoricBatchQueryImpl;
+import org.camunda.bpm.engine.impl.cmmn.entity.repository.CaseDefinitionQueryImpl;
 import org.camunda.bpm.engine.impl.context.Context;
 import org.camunda.bpm.engine.impl.db.AuthorizationCheck;
 import org.camunda.bpm.engine.impl.db.CompositePermissionCheck;
@@ -105,6 +106,9 @@ import org.camunda.bpm.engine.impl.persistence.entity.util.AuthManagerUtil;
 import org.camunda.bpm.engine.impl.persistence.entity.util.AuthManagerUtil.VariablePermissions;
 import org.camunda.bpm.engine.impl.util.ResourceTypeUtil;
 import org.camunda.bpm.engine.query.Query;
+
+
+import static org.camunda.bpm.engine.authorization.Resources.CASE_DEFINITION;;
 
 /**
  * @author Daniel Meyer
@@ -1164,6 +1168,10 @@ public class AuthorizationManager extends AbstractManager {
     return getDbEntityManager()
         .deletePreserveOrder(AuthorizationEntity.class, "deleteAuthorizationsByRemovalTime",
             new ListQueryParameterObject(parameters, 0, batchSize));
+  }
+
+  public void configureCaseDefinitionQuery(CaseDefinitionQueryImpl query) {
+    configureQuery(query, CASE_DEFINITION, "RES.KEY_");
   }
 
 }

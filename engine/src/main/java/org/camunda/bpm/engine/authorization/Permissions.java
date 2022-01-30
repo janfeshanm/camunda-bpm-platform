@@ -47,7 +47,7 @@ public enum Permissions implements Permission {
   READ("READ", 2,
       EnumSet.of(Resources.AUTHORIZATION, Resources.BATCH, Resources.DASHBOARD, Resources.DECISION_DEFINITION, Resources.DECISION_REQUIREMENTS_DEFINITION,
           Resources.DEPLOYMENT, Resources.FILTER, Resources.GROUP, Resources.PROCESS_DEFINITION, Resources.PROCESS_INSTANCE, Resources.REPORT, Resources.TASK,
-          Resources.TENANT, Resources.USER)),
+          Resources.TENANT, Resources.USER, Resources.CASE_DEFINITION, Resources.CASE_INSTANCE, Resources.CASE_EXECUTION)),
 
   /** Indicates that UPDATE interactions are permitted. */
   UPDATE("UPDATE", 4, EnumSet.of(Resources.AUTHORIZATION, Resources.BATCH, Resources.DASHBOARD, Resources.DECISION_DEFINITION, Resources.FILTER,

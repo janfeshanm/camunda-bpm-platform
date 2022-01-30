@@ -128,6 +128,7 @@ public class CaseDefinitionManager extends AbstractManager implements AbstractRe
   }
 
   protected void configureCaseDefinitionQuery(CaseDefinitionQueryImpl query) {
+    getAuthorizationManager().configureCaseDefinitionQuery(query);
     getTenantManager().configureQuery(query);
   }
 
